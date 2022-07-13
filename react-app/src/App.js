@@ -1,6 +1,9 @@
 import Jsx from "./components/Jsx";
 import InlineStyle from "./components/InlineStyle";
 import MyComponent from "./components/MyComponent";
+import Counter from "./components/Counter";
+import Say from "./components/Say";
+import EventPractice from "./components/EventPractice";
 
 function App() {
   const name1 = "리액트";
@@ -14,6 +17,9 @@ function App() {
         <h11>h1이에요</h11>
         <h5>h5이에요</h5>
       </MyComponent>
+      <Counter />
+      <Say />
+      <EventPractice />
     </>
   );
 }
