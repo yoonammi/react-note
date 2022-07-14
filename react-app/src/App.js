@@ -1,15 +1,21 @@
-import Jsx from "./components/Jsx";
-import InlineStyle from "./components/InlineStyle";
-import MyComponent from "./components/MyComponent";
-import Counter from "./components/Counter";
-import Say from "./components/Say";
-import EventPractice from "./components/EventPractice";
+// import Jsx from "./components/Jsx";
+// import InlineStyle from "./components/InlineStyle";
+// import MyComponent from "./components/MyComponent";
+// import Counter from "./components/Counter";
+// import Say from "./components/Say";
+// import EventPractice from "./components/EventPractice";
+import IterationSalple from "./components/IterationSample";
 
 function App() {
-  const name1 = "리액트";
+  // const name1 = "리액트";
   return (
     <>
-      <Jsx />
+      <IterationSalple />
+    </>
+  );
+}
+
+/* <Jsx />
       <InlineStyle />
       <MyComponent name={name1} message="반가워요" />
       <MyComponent name={"뷰"} message="감사합니다" />
@@ -19,9 +25,5 @@ function App() {
       </MyComponent>
       <Counter />
       <Say />
-      <EventPractice />
-    </>
-  );
-}
-
+      <EventPractice /> */
 export default App;
