@@ -23,6 +23,7 @@ const EventPractice = () => {
   };
 
   const handleKeyUp = (e) => {
+    // 기명함수도 onkeyup에 바로 있어서 첫번째 인자에서 이벤트 정보를 가져올 수 있다.
     if (e.key === "Enter") {
       handleClick();
     }

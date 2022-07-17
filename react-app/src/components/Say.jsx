@@ -27,3 +27,6 @@ const Say = () => {
 };
 
 export default Say;
+
+// 방식1:  onClick={() => 함수()} 익명함수를 넣음 => 자바스크립트 코드 전달이 아니라 함수를 전달하는 방식(jxs를?)
+// 방식2:  onClick={함수}
