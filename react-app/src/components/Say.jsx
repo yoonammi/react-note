@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Say = () => {
-  const [message, setMessage] = useState(""); // message초기값은 빈값
+  const [message, setMessage] = useState(""); // message초기값은 빈""값
   const onClickEnter = () => setMessage("안녕하세요!");
   const onClickLeave = () => setMessage("안녕히 가세요!");
   console.log("렌더링"); // 가상돔이어서 렌더링을 여러번 할 필요가 없어서 계속은 안찍힘

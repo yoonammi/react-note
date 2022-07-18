@@ -12,9 +12,12 @@ const map = (callback) => {
 
   return array;
 };
+
 const arr = [1, 2, 3];
+
 const callback = (e, i) => {
   console.log(e);
-  return e + 10;
+  return e + 10; // 이 리턴값이 새 배열에 들어감
 };
+
 const newArr = arr.map(callback);
