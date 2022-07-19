@@ -1,5 +1,4 @@
-import { useCallback } from "react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 
 const getAverage = (numbers) => {
   console.log("평균값 계산 중..");
@@ -9,6 +8,7 @@ const getAverage = (numbers) => {
 };
 
 const Average = () => {
+  const inputEl = useRef(null); // null : 개발자가 의도적으로 빈값을 넣어둠
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
 
@@ -21,6 +21,7 @@ const Average = () => {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
       setNumber("");
+      inputEl.current.focus(); // dom함수를 쓸 수 있게됨
     },
     [number, list]
   );
@@ -32,7 +33,7 @@ const Average = () => {
 
   return (
     <div>
-      <input value={number} onChange={onChange} />
+      <input value={number} onChange={onChange} ref={inputEl} />
       <button onClick={onInsert}>등록</button>
       <ul>
         {list.map((value, index) => (

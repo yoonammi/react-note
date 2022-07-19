@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-const IterationSalple = () => {
+const IterationSample = () => {
   const [text, setText] = useState("");
   const [names, setNames] = useState([
     { id: 1, text: "얼음" },
@@ -8,17 +8,24 @@ const IterationSalple = () => {
     { id: 3, text: "바람" },
     { id: 4, text: "구름" },
   ]);
-  const [nextId, setNextId] = useState(5);
+
+  // const [nextId, setNextId] = useState(5);
+  const nextId = useRef(5);
 
   const handleClick = () => {
     // names.push(text);
+
     if (!text) return; // early return
 
-    const nextNames = [...names, { id: nextId, text }];
+    const nextNames = [...names, { id: nextId.current, text }];
     setNames(nextNames);
     setText("");
-    setNextId(nextId + 1);
+
+    // nextId.current = nextId.current + 1;
+    // nextId.current += 1;
+    nextId.current++;
   };
+  // nextId.current도 평범한 변수이다.
 
   const handleDelete = (deleteId) => {
     const nextNames = names.filter((e, i) => {
@@ -61,6 +68,6 @@ const IterationSalple = () => {
   );
 };
 
-export default IterationSalple;
+export default IterationSample;
 
 // <li key={id}  ===> 이 key 값을 기준으로 바뀔 렌더링과 현재를 비교한다 그래서 키값을 안주거나 겹치는 값을 주게 되면 다시 렌더링을 할때 꼬이게 됨
