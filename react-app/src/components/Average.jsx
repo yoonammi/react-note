@@ -25,7 +25,10 @@ const Average = () => {
     [number, list]
   );
 
-  const avg = useMemo(() => getAverage(list), [list]);
+  const avg = useMemo(() => getAverage(list), [list]); // useEffect와 비슷
+  // getAverage함수의 리턴값을 가져다가 avg에 담아 출력함.
+  // 첫번째 인자는 () => getAverage(list) 이고, 이 첫번째 함수의 리턴값이 avg에.
+  // 두번째 인자는 [list] 이고, 이 list값이 바뀔때만 () => getAverage(list) 이 실행이 되어 avg값을 초기화 한다
 
   return (
     <div>
@@ -44,3 +47,5 @@ const Average = () => {
 };
 
 export default Average;
+
+// useMemo를 이용해 useEffect 처럼 list값이 바뀔때만 getAverage함수를 실행하게 할 수 있다
