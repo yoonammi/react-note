@@ -57,3 +57,20 @@ const StyledComponent = () => {
 };
 
 export default StyledComponent;
+
+/**
+
+리엑트에서는 보통 styled component 를 많이 쓴다.
+하나의 컴포넌트에만 css를 import해도 html파일에 css가 적용되는 것이기 때문에 모든 컴포넌트들에 css가 남아있는다. 그래서 css모듈을 쓴다.
+
+일반css : index.css 같은..
+scss, sass : 웹팩에서 컴파일(css로 변환) 해줘야함
+css모듈 : 하나의 컴포넌트에만 css가 남게끔..
+
+
+styledComponent 사용
+- css in js(자바스크립트 파일 안에서 css 설정)
+- 라이브러리 설치 필요
+  : npm i styled-components
+  => package.json에 추가됨
+ */

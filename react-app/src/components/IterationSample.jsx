@@ -17,7 +17,7 @@ const IterationSample = () => {
 
     if (!text) return; // early return
 
-    const nextNames = [...names, { id: nextId.current, text }];
+    const nextNames = [...names, { id: nextId.current, text }]; // nextId는 랜더링에 사용을 하고 있지 않고, 컴포넌트 안에서 다음 아이디로 쓰이기 위한것. 저장은 해야하니까 useState에 넣어둔거고.. 암튼 이런 상황에서 useRef로 선언하는것이 적절하다
     setNames(nextNames);
     setText("");
 

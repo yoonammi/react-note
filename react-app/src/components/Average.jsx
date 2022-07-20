@@ -50,3 +50,13 @@ const Average = () => {
 export default Average;
 
 // useMemo를 이용해 useEffect 처럼 list값이 바뀔때만 getAverage함수를 실행하게 할 수 있다
+
+/**
+ *
+<useRef>
+const inputEl = useRef(초기값);
+- ref사용 하는 상황
+1. ref로 돔에 접근 가능
+2. 로컬변수 사용(랜더링과 상관 없을때)
+
+ */
