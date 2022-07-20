@@ -1,23 +1,22 @@
-import { Component } from "react";
-import Flex from "./components/Flex";
+// import { Component } from "react";
+import Todo from "./components/Todo";
 
-// function App() {
-//   // const name1 = "리액트";
-//   return (
-//     <>
-//       <StyledComponent />
-//     </>
-//   );
-// }
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Flex />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <>
+      <Todo />
+    </>
+  );
 }
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Flex />
+//       </div>
+//     );
+//   }
+// }
 
 export default App;
