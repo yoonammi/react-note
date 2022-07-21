@@ -1,10 +1,11 @@
 // import { Component } from "react";
-import Todo from "./components/Todo";
+import Bootstrap from "./components/Bootstrap";
+import Accordion from "./components/Bootstrap/Accordion";
 
 function App() {
   return (
     <>
-      <Todo />
+      <Bootstrap />
     </>
   );
 }
