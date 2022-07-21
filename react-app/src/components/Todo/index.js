@@ -27,15 +27,13 @@ const Todo = () => {
 
   const handleChecked = (id) => {
     const nextTodo = todos.map((todo) => {
-      // const nextTodoId = { ...todos };
-      // console.log(nextTodoId);
+      //   if (todo.id === id) {
+      //     todo.checked = !todo.checked;
+      //   }
 
-      //~
-      if (todo.id === id) {
-        todo.checked = !todo.checked;
-      }
+      todo.checked = todo.id === id ? !todo.checked : todo.checked;
+
       return todo;
-      //~
     });
     setTodos(nextTodo);
   };
