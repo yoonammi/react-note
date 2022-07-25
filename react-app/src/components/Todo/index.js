@@ -66,3 +66,5 @@ export default Todo;
 // 07.20 노트
 // {todos.map((e, i) => {})에서 {}말고 ()를 써야 값을 바로 리턴함
 // {todos.map((e, i) => ()) 이렇게! (대신 console.log는 쓸 수 없음)
+
+/**/

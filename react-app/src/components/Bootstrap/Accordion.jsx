@@ -5,12 +5,17 @@ const Accordion = ({ data }) => {
   return (
     <>
       <List>
-        {data.map(({ id, title, content }) => (
-          <Item key={id}>
-            <Header>{title}</Header>
-            <Body>{content}</Body>
-          </Item>
-        ))}
+        {data.map(
+          (
+            // () 인 이유는 jsx만 불러올거니까 괄호로
+            { id, title, content }
+          ) => (
+            <Item key={id}>
+              <Header>{title}</Header>
+              <Body>{content}</Body>
+            </Item>
+          )
+        )}
       </List>
     </>
   );
