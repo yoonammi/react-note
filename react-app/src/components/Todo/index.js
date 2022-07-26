@@ -67,4 +67,14 @@ export default Todo;
 // {todos.map((e, i) => {})에서 {}말고 ()를 써야 값을 바로 리턴함
 // {todos.map((e, i) => ()) 이렇게! (대신 console.log는 쓸 수 없음)
 
-/**/
+/*
+todo구현
+
+1. const todos 배열로 아이템을 수기로 반복해서 써주고
+ -> map함수를 이용해서 다시 출력하기
+2. input에 입력된 값을 useState에 저장
+3. +버튼 누르면 input값 초기화
+4. todos를 useState로 선언
+5. +버튼 누르면 list에 input 값을 content로 하는 todo 추가
+6. X버튼 누르면 id를 통해서 삭제(filter함수)
+*/

@@ -81,3 +81,15 @@ const Body = styled.div`
 `;
 
 export default Accordion;
+
+/*
+아코디언 구현
+접근: <Header />를 누르면 <Body />의 display가 none로
+
+1. <Body />의 display가 props.active에 따라서 true면 "block" , false면 "none"이 되도록
+2. 특정 <Item />만 active되도록
+3. active변수 useState로 선언하고 index 담기 : 1. 값이 바뀌면서 2. 재 렌더링 필요함
+4. map함수의 index와 active값이 같으면 <Body />의 display:block, 다르면 none
+5. <Header />를 누르면 <Header />의 index로 active값 교체
+6. 열려있는 <Item />누르면 닫히도록
+*/
