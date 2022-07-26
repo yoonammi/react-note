@@ -1,25 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
+import useDropdown from "../../hooks/useDropdown";
 
 const Dropdown = () => {
   const wrapperEl = useRef(null);
-  const buttonEl = useRef(null);
-  const [show, setShow] = useState(false);
 
-  useEffect(() => {
-    const onClick = (e) => {
-      if (!wrapperEl.current.contains(e.target)) {
-        setShow(false);
-      }
-      // if (e.target !== buttonEl.current) {
-      //   setShow(false);
-      // }
-    };
-    document.body.addEventListener("click", onClick);
-    return () => {
-      document.body.removeEventListener("click", onClick);
-    };
-  }, []);
+  const [show, setShow] = useDropdown(wrapperEl);
 
   //   document.body.addEventListener("click", () => {
   //     console.log("click!");
@@ -29,9 +15,7 @@ const Dropdown = () => {
 
   return (
     <Wrapper ref={wrapperEl}>
-      <Button ref={buttonEl} onClick={() => setShow(!show)}>
-        Dropdown Button
-      </Button>
+      <Button onClick={() => setShow(!show)}>Dropdown Button</Button>
       {show && (
         <List>
           <Item>Action</Item>

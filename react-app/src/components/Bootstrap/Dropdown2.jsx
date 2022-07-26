@@ -1,19 +1,25 @@
+import { useRef } from "react";
 import styled from "styled-components";
+import useDropdown from "../../hooks/useDropdown";
 
-const Dropdown2 = () => {
-  const handleClick = () => {};
+const Dropdown = () => {
+  const wrapperEl = useRef(null);
+  const [show, setShow] = useDropdown(wrapperEl);
+
   return (
-    <Wrapper>
-      <Button onClick={handleClick}>Dropdown Button</Button>
-      <List>
-        <Item>Action</Item>
-        <Item>Another action</Item>
-        <Item>something else</Item>
-      </List>
+    <Wrapper ref={wrapperEl}>
+      <Button onClick={() => setShow(!show)}>Dropdown Button</Button>
+
+      {show && (
+        <List>
+          <Item>Action</Item>
+          <Item>Another action</Item>
+          <Item>something else</Item>
+        </List>
+      )}
     </Wrapper>
   );
 };
-
 const Wrapper = styled.div`
   position: relative;
   display: inline-block;
@@ -44,4 +50,4 @@ const Item = styled.div`
   }
 `;
 
-export default Dropdown2;
+export default Dropdown;
