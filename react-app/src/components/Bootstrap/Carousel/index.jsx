@@ -1,9 +1,32 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import FadeInImages from "./FadeInImages";
+import SlideImages from "./SlideImages";
 
-const Carousels1 = ({ data }) => {
-  const [index, setIndex] = useState(3);
+const Carousels1 = ({ data, type }) => {
+  const [index, setIndex] = useState(0);
+  const isLoading = useRef(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      handleIndex(index + 1);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [index]);
+
+  useEffect(() => {
+    isLoading.current = true;
+    setTimeout(() => {
+      isLoading.current = false;
+    }, 500);
+  }, [index]);
+
   const handleIndex = (i) => {
+    if (isLoading.current) return;
+
     const lastIndex = data.length - 1;
     let nextIndex = i;
 
@@ -11,14 +34,13 @@ const Carousels1 = ({ data }) => {
     if (i > lastIndex) nextIndex = 0;
     setIndex(nextIndex);
   };
-
+  const Images = {
+    "fade-in": <FadeInImages data={data} index={index} />,
+    slide: <SlideImages data={data} index={index} />,
+  };
   return (
     <Container>
-      <Images>
-        {data.map(({ id, image }, i) => (
-          <Image key={id} src={image} active={index === i} />
-        ))}
-      </Images>
+      {Images[type]}
       <BtnLeft onClick={() => handleIndex(index - 1)}>이전</BtnLeft>
       <BtnRight onClick={() => handleIndex(index + 1)}>다음</BtnRight>
       <Pages>
@@ -36,17 +58,9 @@ const Container = styled.div`
   position: relative;
   width: 600px;
   height: 400px;
+  overflow: hidden;
 `;
-const Images = styled.div``;
-const Image = styled.img`
-  transition: opacity 0.5s;
-  opacity: ${({ active }) => !active && 0};
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
+
 const Btn = styled.button`
   position: absolute;
   top: 50%;
