@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const ModalName = ({ onClose, name, onChange }) => {
+const ModalName = ({ type, onClose, name, onChange }) => {
   const [text, setText] = useState(name);
 
   const handleSubmit = () => {
@@ -18,10 +18,10 @@ const ModalName = ({ onClose, name, onChange }) => {
         }}
       >
         <ModalContainer>
-          <Header>이름 바꾸기</Header>
+          <Header>{type} 바꾸기</Header>
           <Body>
             <Input
-              placeholder="이름을 입력하세요"
+              placeholder={`${type}을 입력하세요`}
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
