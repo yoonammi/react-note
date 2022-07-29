@@ -14,10 +14,9 @@ import images from "../../datas/images";
 
 const Bootstrap = () => {
   const [showModal, setShowModal] = useState(false);
-  const [name, setName] = useState("홍길동");
-
   const [showModalNickname, setShowModalNickname] = useState(false);
-  const [nickname, setNickname] = useState("myname");
+  const [name, setName] = useState("홍길동");
+  const [nickname, setNickname] = useState("별명");
   return (
     <Layout>
       <Accordion data={data1} />
@@ -43,21 +42,15 @@ const Bootstrap = () => {
       <div>
         {nickname}
         <Modal
-          activator={(onOpen) => (
-            <button onClick={onOpen}>닉네임 바꾸기</button>
-          )}
+          activator={(onOpen) => <button onClick={onOpen}>닉네임 바꾸기</button>}
+			content={(onClose) => (
+			<Modalname
+				type="닉네임"
+				name={nickname}
+				onClose={onClose}
+				onChange={(val) => setNickname(val)}
+			/>
         />
-        <button onClick={() => setShowModalNickname(true)}>
-          닉네임 바꾸기
-        </button>
-        {showModalNickname && (
-          <ModalName
-            type="닉네임"
-            name={nickname}
-            onClose={() => setShowModalNickname(false)}
-            onChange={(val) => setNickname(val)}
-          />
-        )}
       </div>
     </Layout>
   );

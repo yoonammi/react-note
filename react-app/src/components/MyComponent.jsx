@@ -1,5 +1,6 @@
 const MyComponent = ({ name, message, children }) => {
   // 이 방식으로 하기로!(비구조 할당으로)
+
   return (
     <>
       <h1>

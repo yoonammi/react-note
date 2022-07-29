@@ -5,7 +5,7 @@ import { getMovies } from "../apis";
 
 const Movie = () => {
   const [items, setItems] = useState([]);
-
+  // useEffect에 넣는 이유: api함수를 그냥 불러오면 렌더링 될때마다 서버에서 계속 불러올 거라서
   useEffect(() => {
     // 1방법
     // const fetch = async () => {

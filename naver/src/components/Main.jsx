@@ -32,3 +32,8 @@ const BtnLink = styled.button`
 `;
 
 export default Main;
+
+/*
+a태그는 브라우저가 이동한다
+<Link />: 라우터 이동은 브라우저와 상관없이 리액트 라우터에서 컴포넌트 교체가 일어난다
+*/
