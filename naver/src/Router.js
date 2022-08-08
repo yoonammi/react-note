@@ -1,8 +1,10 @@
+import React from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Book from "./components/Book";
-import Main from "./components/Main";
-import Movie from "./components/Movie";
+import Main from "./components/pages/Main";
+import Book from "./components/pages/Book";
+import Movie from "./components/pages/Movie";
 
 const Router = () => {
   return (

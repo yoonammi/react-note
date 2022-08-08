@@ -1,13 +1,13 @@
 import axios from "axios";
 
 // axios함수를 이용해 영화를 가져오는 함수
-export const getMovies = async (query) => {
+export const getMovies = async (params) => {
   const result = await axios.get("/v1/search/movie.json", {
     headers: {
       "X-Naver-client-Id": "Ic8WYme828yv3g7IDQXt",
       "X-Naver-client-Secret": "NfcSof22BS",
     },
-    params: { query: query }, //query : 키(요청변수)  / params라는 값을 params라는 이름으로 파라미터를 요청 변수를 보냄
+    params, //query : 키(요청변수)  / params라는 값을 params라는 이름으로 파라미터를 요청 변수를 보냄
   });
 
   return result.data;

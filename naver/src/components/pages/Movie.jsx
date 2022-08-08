@@ -1,11 +1,13 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { getMovies } from "../apis";
 
-const Movie = () => {
+const Movie = (data) => {
+  const [country, setCountry] = useState("KR");
   const [text, setText] = useState("");
-
   const [items, setItems] = useState([]);
   // useEffect에 넣는 이유: api함수를 그냥 불러오면 렌더링 될때마다 서버에서 계속 불러올 거라서
   useEffect(() => {
@@ -24,10 +26,15 @@ const Movie = () => {
     // })();
 
     refreshList();
-  }, []);
+  }, [country]);
   // 3방법
+
   const refreshList = async () => {
-    const result = await getMovies(text);
+    const params = { query: text };
+    if (country !== "all") {
+      params.country = country;
+    }
+    const result = await getMovies(params);
     setItems(result.items);
   };
 
@@ -41,10 +48,11 @@ const Movie = () => {
     <>
       <h1>영화 검색</h1>
       <Form onSubmit={handleSubmit}>
-        <select>
-          <option value="KR">한국</option>
-          <option value="US">미국</option>
-          <option value="JP">일본</option>
+        <select onChange={(e) => setCountry(e.target.value)} value={country}>
+          <option value="all">전체</option>
+          {data.map((code, name) => (
+            <option value={code}>{name}</option>
+          ))}
         </select>
         <Input onChange={(e) => setText(e.target.value)} value={text} />
         <BtnSearch>검색</BtnSearch>
