@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { getMovies } from "../apis";
 
 const Movie = () => {
+  const [text, setText] = useState("");
+
   const [items, setItems] = useState([]);
   // useEffect에 넣는 이유: api함수를 그냥 불러오면 렌더링 될때마다 서버에서 계속 불러올 거라서
   useEffect(() => {
@@ -25,15 +27,26 @@ const Movie = () => {
   }, []);
   // 3방법
   const refreshList = async () => {
-    const result = await getMovies();
+    const result = await getMovies(text);
     setItems(result.items);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    refreshList();
   };
 
   return (
     <>
       <h1>영화 검색</h1>
-      <Form>
-        <Input />
+      <Form onSubmit={handleSubmit}>
+        <select>
+          <option value="KR">한국</option>
+          <option value="US">미국</option>
+          <option value="JP">일본</option>
+        </select>
+        <Input onChange={(e) => setText(e.target.value)} value={text} />
         <BtnSearch>검색</BtnSearch>
       </Form>
       <List>
@@ -41,7 +54,7 @@ const Movie = () => {
           <Item key={link}>
             <Thumbnail src={image} />
             <a href={link} target="_blank" rel="noreferrer">
-              <Name>{title}</Name>
+              <Name dangerouslySetInnerHTML={{ __html: title }} />
             </a>
             <SubTitle>{subtitle}</SubTitle>
           </Item>
@@ -71,7 +84,7 @@ const Item = styled.div``;
 const Thumbnail = styled.img`
   width: 100%;
 `;
-const Name = styled.h4``;
+const Name = styled.p``;
 const SubTitle = styled.div`
   font-size: 14px;
 `;
