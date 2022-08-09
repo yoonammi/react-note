@@ -13,6 +13,18 @@ export const getMovies = async (params) => {
   return result.data;
 };
 
+export const getBooks = async (params) => {
+  const result = await axios.get("/v1/search/book.json", {
+    headers: {
+      "X-Naver-Client-Id": "wnFO2yNn3krBuA93XQCJ",
+      "X-Naver-Client-Secret": "5EYay6pyMe",
+    },
+    params,
+  });
+
+  return result.data;
+};
+
 /**
  개방,폐쇄 원칙 검색해보기
 
