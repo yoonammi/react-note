@@ -18,7 +18,7 @@ const Form = ({ data, onChange }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Container>
         <select onChange={handleCountry} value={data.country}>
           <option value="all">전체</option>
@@ -31,7 +31,7 @@ const Form = ({ data, onChange }) => {
         <Input onChange={(e) => setText(e.target.value)} value={text} />
         <BtnSearch>검색</BtnSearch>
       </Container>
-    </Form>
+    </form>
   );
 };
 

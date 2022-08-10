@@ -7,10 +7,13 @@ import { getBooks } from "../../apis";
 
 import Form from "../templates/Book/Form";
 import List from "../templates/Book/List";
+import Pagination from "../organisms/Pagination";
 
 const Book = () => {
   const [params, setParams] = useState({ query: "" });
   const [items, setItems] = useState([]);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     refreshList();
@@ -21,6 +24,8 @@ const Book = () => {
 
     const result = await getBooks(params);
     setItems(result.items);
+
+    console.log(result.total);
   };
 
   const handleChange = ({ name, value }) => {
@@ -33,6 +38,7 @@ const Book = () => {
       <h1>책 검색</h1>
       <Form onChange={handleChange} />
       <List data={items} />
+      <Pagination nowPage={page} total={total} onChange={() => {}} />
     </Container>
   );
 };
