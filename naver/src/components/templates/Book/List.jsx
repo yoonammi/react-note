@@ -6,7 +6,7 @@ const List = ({ data }) => {
   return (
     <Container>
       {data.map(({ image, title }) => (
-        <Item>
+        <Item key={image}>
           <Thumbnail src={image} />
           <Title>{title}</Title>
         </Item>

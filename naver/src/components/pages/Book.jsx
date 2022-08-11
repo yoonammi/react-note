@@ -17,20 +17,23 @@ const Book = () => {
 
   useEffect(() => {
     refreshList();
-  }, [params]);
+  }, [params, page]);
 
   const refreshList = async () => {
     if (!params.query) return;
 
-    const result = await getBooks(params);
-    setItems(result.items);
+    const display = 10;
+    const start = (page - 1) * display + 1;
 
-    console.log(result.total);
+    const { items, total } = await getBooks({ ...params, start });
+    setItems(items);
+    setTotal(total);
   };
 
   const handleChange = ({ name, value }) => {
     const newParams = { ...params, [name]: value };
     setParams(newParams);
+    setPage(1);
   };
 
   return (
@@ -38,7 +41,11 @@ const Book = () => {
       <h1>책 검색</h1>
       <Form onChange={handleChange} />
       <List data={items} />
-      <Pagination nowPage={page} total={total} onChange={() => {}} />
+      <Pagination
+        nowPage={page}
+        total={total}
+        onChange={(page) => setPage(page)}
+      />
     </Container>
   );
 };
