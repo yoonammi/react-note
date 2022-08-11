@@ -1,15 +1,18 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const List = ({ data }) => {
   return (
     <Container>
-      {data.map(({ image, title }) => (
-        <Item key={image}>
-          <Thumbnail src={image} />
-          <Title>{title}</Title>
-        </Item>
+      {data.map(({ image, title, isbn }) => (
+        <Link to={isbn} key={isbn}>
+          <Item key={image}>
+            <Thumbnail src={image} />
+            <Title>{title}</Title>
+          </Item>
+        </Link>
       ))}
     </Container>
   );

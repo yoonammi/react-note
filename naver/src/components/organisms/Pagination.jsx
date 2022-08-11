@@ -18,6 +18,7 @@ const Pagination = ({ nowPage, total, onChange }) => {
   for (let i = start; i <= end; i++) {
     pages.push(i);
   }
+
   return (
     <Container>
       {nowPage > 1 && (

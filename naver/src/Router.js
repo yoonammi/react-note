@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./components/pages/Main";
 import Book from "./components/pages/Book";
 import Movie from "./components/pages/Movie";
+import BookDetail from "./components/pages/BookDetail";
 
 import Header from "./components/organisms/Header";
 
@@ -19,6 +20,7 @@ const Router = () => {
           <Route path="/" element={<Main />} />
           <Route path="/movie" element={<Movie />} />
           <Route path="/book" element={<Book />} />
+          <Route path="/book/:isbn" element={<BookDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

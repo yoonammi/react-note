@@ -1,12 +1,15 @@
 import axios from "axios";
 
+const instance = axios.create({
+  headers: {
+    "X-Naver-client-Id": "Ic8WYme828yv3g7IDQXt",
+    "X-Naver-client-Secret": "NfcSof22BS",
+  },
+});
+
 // axios함수를 이용해 영화를 가져오는 함수
 export const getMovies = async (params) => {
-  const result = await axios.get("/v1/search/movie.json", {
-    headers: {
-      "X-Naver-client-Id": "Ic8WYme828yv3g7IDQXt",
-      "X-Naver-client-Secret": "NfcSof22BS",
-    },
+  const result = await instance.get("/v1/search/movie.json", {
     params, //query : 키(요청변수)  / params라는 값을 params라는 이름으로 파라미터를 요청 변수를 보냄
   });
 
@@ -14,14 +17,18 @@ export const getMovies = async (params) => {
 };
 
 export const getBooks = async (params) => {
-  const result = await axios.get("/v1/search/book.json", {
-    headers: {
-      "X-Naver-Client-Id": "wnFO2yNn3krBuA93XQCJ",
-      "X-Naver-Client-Secret": "5EYay6pyMe",
-    },
+  const result = await instance.get("/v1/search/book.json", {
     params,
   });
 
+  return result.data;
+};
+
+//책 디테일 불러오기
+export const getBook = async (params) => {
+  const result = await instance.get("/v1/search/book_adv.json", {
+    params,
+  });
   return result.data;
 };
 
