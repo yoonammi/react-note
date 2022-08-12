@@ -40,7 +40,7 @@ export const getBook = async (params) => {
 
 axios.get(첫번째 인자: url, 두번째 인자: 컨피그 객체)
 
-axios: 브라우저에서 서버로 요청을 하는것
+axios: 브라우저에서 서버로 요청을 하는것(라이브러리)
 
 요청을 보내는 파일은 apis폴더에 저장
 
@@ -52,7 +52,7 @@ locallhost:3000 -> openapi.naver.com
 해결법
 1. 서버가 특정 도메인 CORS를 허용해준다
 2. 브라우저->내 서버->상대 서버로 요청한다
-3. webpack proxy 서버 이용(웹팩 개발 서버) -> 브라우저의 요청을 받아서 서버에 대신 요청해준다
+3. webpack proxy 서버 이용(webpack dev server의 기능중 하나:proxy) -> 브라우저의 요청을 받아서 서버에 대신 요청해준다
 
 forword proxy : 대신 요청해주는것
 reverse proxy : 우리가 클라이언트에게 요청을 받아서 서버로 요청을 보내준다, 어느 서버에 보내주는지 알 수 없도록 해서 보안에 좋다 대표로 nginx

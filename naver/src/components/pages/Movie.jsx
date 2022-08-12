@@ -17,14 +17,14 @@ const Movie = () => {
 
   // useEffect에 넣는 이유: api함수를 그냥 불러오면 렌더링 될때마다 서버에서 계속 불러올 거라서
   useEffect(() => {
-    // 1방법
+    // 1방법 기명함수
     // const fetch = async () => {
     //   const result = await getMovies();
     //   console.log(result);
     // };
     // fetch();
 
-    // 2방법 즉시실행함수
+    // 2방법 즉시실행함수(익명함수)
     // (async () => {
     //   //iife
     //   const result = await getMovies();
