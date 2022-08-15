@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 const Header = () => {
+  // pathname에 따라 컴포넌트 보이게, 안보이게
+  //   const { pathname } = useLocation();
+  //   const [show, setShow] = useState(false);
+
+  //   useEffect(() => {
+  //     const isMain = pathname === "/";
+  //     setShow(!isMain);
+  //   }, [pathname]);
+
+  //   if (!show) return <></>;
+
   return (
     <>
       <Container>
