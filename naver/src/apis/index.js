@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// axios 인스턴스(axios 객체)
 const instance = axios.create({
   headers: {
     "X-Naver-client-Id": "Ic8WYme828yv3g7IDQXt",

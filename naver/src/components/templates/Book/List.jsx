@@ -8,6 +8,7 @@ const List = ({ data }) => {
     <Container>
       {data.map(({ image, title, isbn }) => (
         <Link to={isbn} key={isbn}>
+          {/* to={`/book/${isbn}`} 라고 하면 절대경로라고 해서 슬래시 뒤에 있는 주소들이 다 바뀜(/book~부터 다 바뀜) */}
           <Item key={image}>
             <Thumbnail src={image} />
             <Title>{title}</Title>
