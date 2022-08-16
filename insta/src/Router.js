@@ -8,7 +8,6 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        ddd
         <Route path="/" element={<Main />} />
         <Route path="/log-in" element={<LogIn />} />
         <Route path="/sign-up" element={<SignUp />} />
