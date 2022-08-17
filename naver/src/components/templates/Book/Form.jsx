@@ -1,12 +1,10 @@
-import React from "react";
-import { useEffect } from "react";
-
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
 
 const Form = ({ defaultQuery, onChange }) => {
   const [text, setText] = useState(defaultQuery ?? "");
+  // ?? 는 undefined , null만 체크함
 
   useEffect(() => {
     setText(defaultQuery ?? "");

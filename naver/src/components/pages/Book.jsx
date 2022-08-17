@@ -17,6 +17,7 @@ const Book = () => {
   const [total, setTotal] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // 해당 쿼리 값이 있으면 반환해줌
   const qsQuery = searchParams.get("query");
   const qsPage = searchParams.get("page");
 
@@ -25,6 +26,7 @@ const Book = () => {
   useEffect(() => {
     if (qsQuery) {
       setParams((prev) => ({ ...prev, query: qsQuery }));
+      // prev는 이전params값과 같다
     } else {
       //   setParams((prev) => ({ ...prev, query: "" }));
       setItems([]);
