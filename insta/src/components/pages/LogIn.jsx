@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import authApis from "../../apis/auth";
-import instance from "../../apis";
 
 import {
   Layout,
@@ -17,6 +16,8 @@ import {
 } from "../atoms/login";
 
 const LogIn = () => {
+  // const setIsloin
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     userName: "",
     password: "",
@@ -35,7 +36,12 @@ const LogIn = () => {
     const { success, message, token } = await authApis.logIn(form);
     if (!success) return alert(message);
 
-    instance.defaults.headers.common["Authorization"] = "Bearer " + token; // 요청을 할때마다 bearer토큰이 들어간다
+    localStorage.token = token;
+
+    // instance.defaults.headers.common["Authorization"] = "Bearer " + token;
+    //   setIsLogin(true);
+
+    navigate("/");
   };
 
   return (
