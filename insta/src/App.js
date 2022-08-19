@@ -5,8 +5,8 @@ import Router from "./Router";
 import instance from "./apis";
 import { useEffect, useState } from "react";
 
-function App() {
-  // 로컬스토리지에 토큰이 있으면 axios 디폴트 헤더 설정
+const App = () => {
+  // 로컬스토리지에 있는 토큰이 서버에서 검증이 되면 axios 디폴트 헤더 설정
   const setIsLogin = useSetRecoilState(isLoginState);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -20,6 +20,6 @@ function App() {
   }, []);
 
   return isChecked && <Router />;
-}
+};
 
 export default App;

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import authApis from "../../apis/auth";
+import instance from "../../apis";
 
 import {
   Layout,
@@ -15,8 +16,11 @@ import {
   SignUpWrapper,
 } from "../atoms/login";
 
+import { useSetRecoilState } from "recoil";
+import isLoginState from "../../stores/isLoginState";
+
 const LogIn = () => {
-  // const setIsloin
+  const setIslogin = useSetRecoilState(isLoginState);
   const navigate = useNavigate();
   const [form, setForm] = useState({
     userName: "",
@@ -38,9 +42,9 @@ const LogIn = () => {
 
     localStorage.token = token;
 
-    // instance.defaults.headers.common["Authorization"] = "Bearer " + token;
-    //   setIsLogin(true);
-
+    instance.defaults.headers.common["Authorization"] = "Bearer " + token;
+    localStorage.token = token;
+    setIslogin(true);
     navigate("/");
   };
 
