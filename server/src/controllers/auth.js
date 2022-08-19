@@ -2,8 +2,9 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 import UserService from "../services/users.js";
+import { secretKey } from "../config/token.js";
 
-const secretKey = "afefjlej34faejkj#$$$#jfdfr";
+// const secretKey = "afefjlej34faejkj#$$$#jfdfr";
 
 const AuthController = {
   postAuthSignup: async (req, res) => {

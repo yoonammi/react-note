@@ -20,6 +20,7 @@ const Main = () => {
 };
 
 const Container = styled.div`
+  margin-top: 90px;
   display: flex;
   justify-content: center;
 `;
